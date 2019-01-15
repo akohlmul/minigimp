@@ -87,3 +87,20 @@ int lutSEPIA(Image *image) {
 	return EXIT_SUCCESS;
 }
 
+/// GRAYSCALE
+int lutGRAYSCALE(Image *image) {
+	int x, y;
+	int r, v, b;
+
+	for(x=0;x<image->width; x++) {
+		for(y=0;y<image->height;y++) {
+			r = selectPixel(image,x,y,0);
+			v = selectPixel(image,x,y,1);
+			b = selectPixel(image,x,y,2);
+			changePixel(image,x,y,0,(r*0.3+v*0.59+b*0.11));
+			changePixel(image,x,y,1,(r*0.3+v*0.59+b*0.11));
+			changePixel(image,x,y,2,(r*0.3+v*0.59+b*0.11));
+		}
+	}
+	return EXIT_SUCCESS;
+}

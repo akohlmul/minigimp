@@ -34,6 +34,9 @@ int main(int argc, char **argv)
         if (strcmp(argv[i], "SEPIA") == 0) {
             lutSEPIA(&image);
         }
+        if (strcmp(argv[i], "GRAYSCALE") == 0) {
+            lutGRAYSCALE(&image);
+        }
     }
 
     /**************

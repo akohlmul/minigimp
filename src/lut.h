@@ -21,4 +21,7 @@ int lutINVERT(Image *image);
 /// SEPIA
 int lutSEPIA(Image *image);
 
+/// GRAYSCALE
+int lutGRAYSCALE(Image *image);
+
 #endif
