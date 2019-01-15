@@ -21,6 +21,7 @@ int lutADDLUM(Image *image, int value) {
 	return EXIT_SUCCESS;
 }
 
+
 /// DIMLUM
 int lutDIMLUM(Image *image, int value) {
 	int x, y;
@@ -39,4 +40,24 @@ int lutDIMLUM(Image *image, int value) {
 	return EXIT_SUCCESS;
 }
 
+
+/// ADDCON
+int lutADDCON(Image *image, int value) {
+
+}
+
+/// DIMCON
+int lutDIMCON(Image *image, int value) {
+
+}
+
+/// INVERT
+int lutINVERT(Image *image){
+
+}
+
+/// SEPIA
+int lutSEPIA(Image *image) {
+
+}
 

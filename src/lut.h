@@ -6,8 +6,19 @@
 /// ADDLUM
 int lutADDLUM(Image *image, int value);
 
-// DIMLUM
+/// DIMLUM
 int lutDIMLUM(Image *image, int value);
 
+/// ADDCON
+int lutADDCON(Image *image, int value);
+
+/// DIMCON
+int lutDIMCON(Image *image, int value);
+
+/// INVERT
+int lutINVERT(Image *image);
+
+/// SEPIA
+int lutSEPIA(Image *image);
 
 #endif

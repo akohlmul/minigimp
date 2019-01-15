@@ -1,6 +1,6 @@
 * pour tester sous liunx :
 > make
-> ./bin/minigimp pics/chat100.ppm ADDLUM 200 pics/outputchat100.ppm
+> ./bin/minigimp pics/chat100.ppm ADDLUM 200  DIMLUM 100 pics/outputchat100.ppm
 puis regarder dans pics
 
 * pour faire une archive :

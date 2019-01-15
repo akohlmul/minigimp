@@ -22,6 +22,18 @@ int main(int argc, char **argv)
         if (strcmp(argv[i], "DIMLUM") == 0) {
             lutDIMLUM(&image, atoi(argv[i+1]));
         }
+        if (strcmp(argv[i], "ADDCON") == 0) {
+            lutADDCON(&image, atoi(argv[i+1]));
+        }
+        if (strcmp(argv[i], "DIMCON") == 0) {
+            lutDIMCON(&image, atoi(argv[i+1]));
+        }
+        if (strcmp(argv[i], "INVERT") == 0) {
+            lutINVERT(&image);
+        }
+        if (strcmp(argv[i], "SEPIA") == 0) {
+            lutSEPIA(&image);
+        }
     }
 
     /**************
