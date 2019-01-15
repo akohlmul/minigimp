@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "image.h"
+#include "histo.h"
 #include "lut.h"
 
 int main(int argc, char **argv)
@@ -25,6 +26,11 @@ int main(int argc, char **argv)
 
     // free the image memory
     freeImage(&image);
+
+    // histogram
+    int histogram[256];
+    createHisto(&image, histogram);
+    histoPPM(histogram, &image, argv,argc);
 
     return 0;
 }

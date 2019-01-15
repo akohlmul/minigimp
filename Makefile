@@ -1,7 +1,7 @@
 CC     = gcc
 CFLAGS = -Wall -O2 -Wno-unused-result -g
 LIB    = -lm
-OBJ    = main.o image.o lut.o
+OBJ    = main.o image.o lut.o histo.o
 RM     = rm -f
 BIN    = bin/minigimp
 DIRNAME = $(shell basename $$PWD)
@@ -24,7 +24,12 @@ lut.o : src/lut.c src/lut.h
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."
 
-main.o : src/main.c image.o lut.o
+histo.o : src/histo.c src/histo.h src/image.h
+	@echo "compile histo"
+	$(CC) $(CFLAGS) -c $<  
+	@echo "done..."
+
+main.o : src/main.c image.o lut.o histo.o
 	@echo "compile main"
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."
