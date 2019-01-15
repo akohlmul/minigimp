@@ -1,6 +1,6 @@
 * pour tester sous liunx :
 > make
-> ./minigimp pics/image.ppm pics/new.ppm
+> ./minigimp pics/chat25.ppm pics/outputchat25.ppm
 puis regarder dans pics
 
 * pour faire une archive :
