@@ -32,4 +32,10 @@ int saveImagePPM(Image *image, char *filename);
 /// \return EXIT_FAILURE in case of problem, else EXIT_SUCCESS.
 int loadImagePPM(Image *image, char *filename);
 
+/// get pixel
+int selectPixel(Image *image, int x, int y, int color);
+
+/// change pixel
+void changePixel(Image *image, int x, int y, int color, int newValue);
+
 #endif

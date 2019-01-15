@@ -110,3 +110,20 @@ int loadImagePPM(Image *image, char *filename)
 
   return EXIT_SUCCESS;
 }
+
+// Get pixel
+int selectPixel(Image *image, int x, int y, int color) {
+  int pixel = ((image->width)*y*3) + (x*3);
+  return image->data[pixel + color];
+}
+
+// Modify with new value
+void changePixel(Image *image, int x, int y, int color, int value) {
+  if (value <= 0) {
+    image->data[((image->width)*y*3) + (x*3) + color] = 0;
+  } else if (value >= 255) {
+    image->data[((image->width)*y*3) + (x*3) + color] = 255;
+  } else {
+    image->data[((image->width)*y*3) + (x*3) + color] = value;
+  }
+}

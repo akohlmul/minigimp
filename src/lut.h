@@ -3,8 +3,11 @@
 
 #include "image.h"
 
-typedef enum Filter {
-	ADDLUM, DIMLUM, ADDCON, DIMCON, INVERT, SEPIA
-} Filter;
+/// ADDLUM
+int lutADDLUM(Image *image, int value);
+
+// DIMLUM
+int lutDIMLUM(Image *image, int value);
+
 
 #endif

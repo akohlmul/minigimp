@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "histo.h"
 
-
+/*
 // create the histogramme in an array
 void createHisto(Image * image, int histo[]) {
     int average;
@@ -35,3 +35,4 @@ void histoPPM(int *histo[], Image *image,char commands[],int nbCommands){
     // free the histoppm memory
     freeImage(&histoppm);
 }
+*/
