@@ -19,7 +19,7 @@ image.o : src/image.c src/image.h
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."
 
-lut.o : src/lut.c src/lut.h
+lut.o : src/lut.c src/lut.h src/image.h
 	@echo "compile lut"
 	$(CC) $(CFLAGS) -c $<  
 	@echo "done..."

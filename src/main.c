@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "image.h"
 #include "histo.h"
 #include "lut.h"
@@ -15,7 +14,7 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
 
     // modify the image (red pixel in the center)
-    unsigned int pixel = (image.width*(image.height/2) + (image.width/2))*3;
+    unsigned int pixel = (image.width*(image.height) + (image.width))*3;
     printf("%d\n",pixel);
     image.data[pixel + 0] = 255;
     image.data[pixel + 1] = 0;
