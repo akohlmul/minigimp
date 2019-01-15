@@ -47,7 +47,7 @@ int saveImagePPM(Image *image, char *filename)
   {
     // generate the header
     char header[100]; // bad way to proceed, but still ok ...
-    sprintf(header,"P6\n#M. Nozick is a so nice person\n%d %d\n255\n",image->width,image->height);
+    sprintf(header,"P6\n#M. Nozick is a so nice person ! thanks\n%d %d\n255\n",image->width,image->height);
     fprintf(myfile,"%s",header);
 
     // write the data
@@ -111,14 +111,19 @@ int loadImagePPM(Image *image, char *filename)
   return EXIT_SUCCESS;
 }
 
-// Get pixel
-int selectPixel(Image *image, int x, int y, int color) {
-  int pixel = ((image->width)*y*3) + (x*3);
+
+
+// Select the pixel
+int selectPixel(Image *image, unsigned int x, unsigned int y, unsigned int color) {
+  unsigned int pixel = ((image->width)*y*3) + (x*3);
   return image->data[pixel + color];
 }
 
-// Modify with new value
-void changePixel(Image *image, int x, int y, int color, int value) {
+
+
+// change with new value
+void changePixel(Image *image, unsigned int x, unsigned int y, unsigned int color, int value) {
+  // if value is smaller than 0 : takes 0, if it's larger than 255 : takes 255, else takes the new value
   if (value <= 0) {
     image->data[((image->width)*y*3) + (x*3) + color] = 0;
   } else if (value >= 255) {

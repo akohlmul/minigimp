@@ -4,10 +4,8 @@
 #include "image.h"
 
 /// ADDLUM
-int lutADDLUM(Image *image, int value) {
-	int x, y;
-	int r, v, b;
-
+void lutADDLUM(Image *image, int value) {
+	unsigned int x, y, r, v, b;
 	for(x=0;x<image->width; x++) {
 		for(y=0;y<image->height;y++) {
 			r = selectPixel(image,x,y,0);
@@ -18,15 +16,12 @@ int lutADDLUM(Image *image, int value) {
 			changePixel(image,x,y,2,(b+value));
 		}
 	}
-	return EXIT_SUCCESS;
 }
 
 
 /// DIMLUM
-int lutDIMLUM(Image *image, int value) {
-	int x, y;
-	int r, v, b;
-
+void lutDIMLUM(Image *image, int value) {
+	unsigned int x, y, r, v, b;
 	for(x=0;x<image->width; x++) {
 		for(y=0;y<image->height;y++) {
 			r = selectPixel(image,x,y,0);
@@ -37,25 +32,22 @@ int lutDIMLUM(Image *image, int value) {
 			changePixel(image,x,y,2,(b-value));
 		}
 	}
-	return EXIT_SUCCESS;
 }
 
 
 /// ADDCON
-int lutADDCON(Image *image, int value) {
+void lutADDCON(Image *image, int value) {
 
 }
 
 /// DIMCON
-int lutDIMCON(Image *image, int value) {
+void lutDIMCON(Image *image, int value) {
 
 }
 
 /// INVERT
-int lutINVERT(Image *image){
-	int x, y;
-	int r, v, b;
-
+void lutINVERT(Image *image){
+	unsigned int x, y, r, v, b;
 	for(x=0;x<image->width; x++) {
 		for(y=0;y<image->height;y++) {
 			r = selectPixel(image,x,y,0);
@@ -66,14 +58,11 @@ int lutINVERT(Image *image){
 			changePixel(image,x,y,2,(255-b));
 		}
 	}
-	return EXIT_SUCCESS;
 }
 
 /// SEPIA
-int lutSEPIA(Image *image) {
-	int x, y;
-	int r, v, b;
-
+void lutSEPIA(Image *image) {
+	unsigned int x, y, r, v, b;
 	for(x=0;x<image->width; x++) {
 		for(y=0;y<image->height;y++) {
 			r = selectPixel(image,x,y,0);
@@ -84,14 +73,11 @@ int lutSEPIA(Image *image) {
 			changePixel(image,x,y,2,(r*0.25+v*0.65+b*0.1));
 		}
 	}
-	return EXIT_SUCCESS;
 }
 
 /// GRAYSCALE
-int lutGRAYSCALE(Image *image) {
-	int x, y;
-	int r, v, b;
-
+void lutGRAYSCALE(Image *image) {
+	unsigned int x, y, r, v, b;
 	for(x=0;x<image->width; x++) {
 		for(y=0;y<image->height;y++) {
 			r = selectPixel(image,x,y,0);
@@ -102,5 +88,4 @@ int lutGRAYSCALE(Image *image) {
 			changePixel(image,x,y,2,(r*0.3+v*0.59+b*0.11));
 		}
 	}
-	return EXIT_SUCCESS;
 }

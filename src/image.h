@@ -32,10 +32,20 @@ int saveImagePPM(Image *image, char *filename);
 /// \return EXIT_FAILURE in case of problem, else EXIT_SUCCESS.
 int loadImagePPM(Image *image, char *filename);
 
-/// get pixel
-int selectPixel(Image *image, int x, int y, int color);
+/// \brief select a pixel and the color.
+/// \param image: pointer on the image.
+/// \param x: pixel rows.
+/// \param y: pixel columns.
+/// \param color: 0 for red, 1 for green, 2 for blue.
+/// \return the value of the element r, g or b of the selected pixel
+int selectPixel(Image *image, unsigned int x, unsigned int y, unsigned int color);
 
-/// change pixel
-void changePixel(Image *image, int x, int y, int color, int newValue);
+/// \brief change the value of the element r, g or b of the pixel
+/// \param image: pointer on the image.
+/// \param x: pixel rows.
+/// \param y: pixel columns.
+/// \param color: 0 for red, 1 for green, 2 for blue.
+/// \param value:
+void changePixel(Image *image, unsigned int x, unsigned int y, unsigned int color, int value);
 
 #endif

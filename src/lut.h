@@ -4,24 +4,42 @@
 #include "image.h"
 
 /// ADDLUM
-int lutADDLUM(Image *image, int value);
+/// \brief add luminosity on the image.
+/// \param image: pointer on the image.
+/// \param value: new pixel value entered by command lines.
+void lutADDLUM(Image *image, int value);
 
 /// DIMLUM
-int lutDIMLUM(Image *image, int value);
+/// \brief reduce luminosity on the image.
+/// \param image: pointer on the image.
+/// \param value: new pixel value entered by command lines.
+void lutDIMLUM(Image *image, int value);
 
 /// ADDCON
-int lutADDCON(Image *image, int value);
+/// \brief add contrast on the image.
+/// \param image: pointer on the image.
+/// \param value: new pixel value entered by command lines.
+void lutADDCON(Image *image, int value);
 
 /// DIMCON
-int lutDIMCON(Image *image, int value);
+/// \brief reduce contrast on the image.
+/// \param image: pointer on the image.
+/// \param value: new pixel value entered by command lines.
+void lutDIMCON(Image *image, int value);
 
 /// INVERT
-int lutINVERT(Image *image);
+/// \brief create a negative image
+/// \param image: pointer on the image.
+void lutINVERT(Image *image);
 
 /// SEPIA
-int lutSEPIA(Image *image);
+/// \brief apply a sepia effect on the image.
+/// \param image: pointer on the image.
+void lutSEPIA(Image *image);
 
 /// GRAYSCALE
-int lutGRAYSCALE(Image *image);
+/// \brief put the image in grayscales.
+/// \param image: pointer on the image.
+void lutGRAYSCALE(Image *image);
 
 #endif

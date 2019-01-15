@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     if(loadImagePPM(&image, argv[1]) != EXIT_SUCCESS)
         return EXIT_FAILURE;
 
-    // ADDLUM, DIMLUM, ADDCON, DIMCON, INVERT, SEPIA
+    // 
     for (int i = 0; i <argc; i++) {
         if (strcmp(argv[i], "ADDLUM") == 0) {
             lutADDLUM(&image, atoi(argv[i+1]));
