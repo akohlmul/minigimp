@@ -124,7 +124,7 @@ int selectPixel(Image *image, unsigned int x, unsigned int y, unsigned int color
 // change with new value
 void changePixel(Image *image, unsigned int x, unsigned int y, unsigned int color, int value) {
   // if value is smaller than 0 : takes 0, if it's larger than 255 : takes 255, else takes the new value
-  if (value <= 0) {
+  if (value < 0) {
     image->data[((image->width)*y*3) + (x*3) + color] = 0;
   } else if (value >= 255) {
     image->data[((image->width)*y*3) + (x*3) + color] = 255;
