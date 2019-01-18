@@ -4,11 +4,9 @@
 #include "lut.h"
 #include "image.h"
 
-
-
 //init a lut
-void initLUT(LutRGB *lut){
-	for (int i=0; i<256; i++){
+void initLUT(LutRGB *lut) {
+	for (int i=0; i<256; i++) {
 		lut->r[i]=i;
 		lut->g[i]=i;
 		lut->b[i]=i;
@@ -17,7 +15,7 @@ void initLUT(LutRGB *lut){
 
 /// ADDLUM
 void lutADDLUM(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++){
+	for (int i=0; i<256; i++) {
 		lut->r[i]=lut->r[i]+value;
 		lut->g[i]=lut->g[i]+value;
 		lut->b[i]=lut->b[i]+value;
@@ -26,7 +24,7 @@ void lutADDLUM(LutRGB *lut, int value) {
 
 /// DIMLUM
 void lutDIMLUM(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++){
+	for (int i=0; i<256; i++) {
 		lut->r[i]=lut->r[i]-value;
 		lut->g[i]=lut->g[i]-value;
 		lut->b[i]=lut->b[i]-value;
@@ -44,12 +42,49 @@ void lutADDCON(LutRGB *lut, int value) {
 
 /// DIMCON
 void lutDIMCON(LutRGB *lut, int value) {
+	for (int i=0; i<256; i++){
+		int red=lut->r[i]-(value*sin(lut->r[i]*((2*M_PI)/255)-M_PI));
+		int green=lut->g[i]-(value*sin(lut->g[i]*((2*M_PI)/255)-M_PI));
+		int blue=lut->b[i]-(value*sin(lut->b[i]*((2*M_PI)/255)-M_PI));
+		if ((lut->r[i]<128 && red>128) || (lut->r[i]>128 && red<128)) {
+			red=128;
+		}
+		if ((lut->g[i]<128 && green>128) || (lut->g[i]>128 && green<128)) {
+			green=128;
+		}
+		if ((lut->b[i]<128 && blue>128) || (lut->b[i]>128 && blue<128)) {
+			blue=128;
+		}
+		lut->r[i]=red;
+		lut->g[i]=green;
+		lut->b[i]=blue;
+	}
+}
 
+/// FLOOR
+void lutFLOOR(LutRGB *lut, int value) {
+	for (int i=0; i<256; i++) {
+		if (lut->r[i]<value) {
+			lut->r[i]=255;
+		} else {
+			lut->r[i]=0;
+		}
+		if (lut->g[i]<value) {
+			lut->g[i]=255;
+		} else {
+			lut->g[i]=0;
+		}
+		if (lut->b[i]<value) {
+			lut->b[i]=255;
+		} else {
+			lut->b[i]=0;
+		}
+	}
 }
 
 /// INVERT
-void lutINVERT(LutRGB *lut){
-	for (int i=0; i<256; i++){
+void lutINVERT(LutRGB *lut) {
+	for (int i=0; i<256; i++) {
 		lut->r[i]=255-lut->r[i];
 		lut->g[i]=255-lut->g[i];
 		lut->b[i]=255-lut->b[i];
@@ -59,19 +94,13 @@ void lutINVERT(LutRGB *lut){
 /// SEPIA 
 void lutSEPIA(LutRGB *lut, int value) {
 	for (int i=0; i<256; i++){
-		lut->r[i]=((lut->r[i])+(2*value));
-		lut->g[i]=((lut->g[i])+(1.2*value));
-		lut->b[i]=((lut->b[i])+(0.2*value));
+		lut->r[i]=((lut->r[i])+(2*value/3));
+		lut->g[i]=((lut->g[i])+(1.2*value/3));
 	}
 }
 
-/// GRAYSCALE
-void lutGRAYSCALE(LutRGB *lut) {
-
-}
-
 /// apply the lut to the image
-void lutGLOBAL(Image *image, LutRGB *lut){
+void lutGlobal(Image *image, LutRGB *lut) {
 	unsigned int x, y, r, g, b;
 	for(x=0;x<image->width; x++) {
 		for(y=0;y<image->height;y++) {
@@ -85,34 +114,19 @@ void lutGLOBAL(Image *image, LutRGB *lut){
 	}
 }
 
-/*
-/// SEPIA
-void lutSEPIA(Image *image) {
-	unsigned int x, y, r, v, b;
-	for(x=0;x<image->width; x++) {
-		for(y=0;y<image->height;y++) {
-			r = selectPixel(image,x,y,0);
-			v = selectPixel(image,x,y,1);
-			b = selectPixel(image,x,y,2);
-			changePixel(image,x,y,0,(r*0.40+v*0.80+b*0.25));
-			changePixel(image,x,y,1,(r*0.3+v*0.7+b*0.15));
-			changePixel(image,x,y,2,(r*0.25+v*0.65+b*0.1));
-		}
-	}
-}
-
 /// GRAYSCALE
-void lutGRAYSCALE(Image *image) {
-	unsigned int x, y, r, v, b;
+void GRAYSCALE(Image *image) {
+	int average=0;
+	unsigned int x, y, r, g, b;
 	for(x=0;x<image->width; x++) {
 		for(y=0;y<image->height;y++) {
 			r = selectPixel(image,x,y,0);
-			v = selectPixel(image,x,y,1);
+			g = selectPixel(image,x,y,1);
 			b = selectPixel(image,x,y,2);
-			changePixel(image,x,y,0,(r*0.3+v*0.59+b*0.11));
-			changePixel(image,x,y,1,(r*0.3+v*0.59+b*0.11));
-			changePixel(image,x,y,2,(r*0.3+v*0.59+b*0.11));
+			average=(r+g+b)/3;
+			changePixel(image,x,y,0,average);
+			changePixel(image,x,y,1,average);
+			changePixel(image,x,y,2,average);
 		}
 	}
 }
-*/

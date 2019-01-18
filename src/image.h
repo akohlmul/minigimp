@@ -8,7 +8,6 @@ typedef struct Image{
   unsigned int height;
 }Image;
 
-
 /// \brief allocate the memory for a new image
 /// \param image: pointer on the image.
 /// \param width: width of the required the image.
