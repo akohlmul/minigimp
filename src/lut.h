@@ -51,6 +51,10 @@ void lutINVERT(LutRGB *lut);
 /// \param value: new pixel value entered by command lines.
 void lutSEPIA(LutRGB *lut, int value);
 
+/// GRAYSCALE
+/// \brief put the image in grayscales.
+/// \param image: pointer on the image.
+void lutGRAYSCALE(LutRGB *lut);
 
 /// \brief apply the lut to the image.
 /// \param image pointer on the Image.

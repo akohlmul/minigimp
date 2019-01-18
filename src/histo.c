@@ -52,7 +52,7 @@ int histoPPM(int *histo,char *commands[],int nbCommands){
     }
     printf("bonjour4");
     // save the histoppm (if the directory "pics" already exists)
-    saveImagePPM(&histoppm, "histo");
+    saveImagePPM(&histoppm, "pics/histo.ppm");
     printf("je suis là6\n");
     // free the histoppm memory
     freeImage(&histoppm);

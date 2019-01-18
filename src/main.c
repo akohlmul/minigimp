@@ -46,11 +46,9 @@ int main(int argc, char **argv)
         if (strcmp(argv[i], "SEPIA") == 0) {
             lutSEPIA(&lut, atoi(argv[i+1]));
         }
-        /*
         if (strcmp(argv[i], "GRAYSCALE") == 0) {
             lutGRAYSCALE(&lut);
         }
-        */
     }
     lutGLOBAL(&image, &lut);
     

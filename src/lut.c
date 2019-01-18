@@ -60,9 +60,14 @@ void lutINVERT(LutRGB *lut){
 void lutSEPIA(LutRGB *lut, int value) {
 	for (int i=0; i<256; i++){
 		lut->r[i]=((lut->r[i])+(2*value));
-		lut->g[i]=((lut->g[i])+(1*value));
-		lut->b[i]=((lut->b[i])+(0*value));
+		lut->g[i]=((lut->g[i])+(1.2*value));
+		lut->b[i]=((lut->b[i])+(0.2*value));
 	}
+}
+
+/// GRAYSCALE
+void lutGRAYSCALE(LutRGB *lut) {
+
 }
 
 /// apply the lut to the image
