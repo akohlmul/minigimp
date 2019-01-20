@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include "lut.h"
 #include "image.h"
 
@@ -82,6 +83,14 @@ void lutFLOOR(LutRGB *lut, int value) {
 	}
 }
 
+/// ADDSAT
+void lutVAPORWAVE(LutRGB *lut, int value, int *histo) {
+	for (int i=0; i<256; i++) {
+		lut->r[i]=lut->r[i]*(value/20);
+		lut->b[i]=(histo[i]+1);
+	}
+}
+
 /// INVERT
 void lutINVERT(LutRGB *lut) {
 	for (int i=0; i<256; i++) {
@@ -129,4 +138,11 @@ void GRAYSCALE(Image *image) {
 			changePixel(image,x,y,2,average);
 		}
 	}
+}
+
+/// RANDOM
+int randomValue () {
+	int randValue;
+	srand(time(0));
+	return randValue = 1+rand()%255;
 }

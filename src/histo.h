@@ -9,9 +9,7 @@ void createHisto(Image * image, int *histo);
 
 /// \brief create the graph of the histogramme and save in .ppm.
 /// \param histo:
-/// \param 
-/// \param 
 /// \return EXIT_FAILURE in case of problem, else EXIT_SUCCESS.
-int histoPPM(int *histo, char *commands[], int nbCommands );
+int histoPPM(int *histo);
 
 #endif

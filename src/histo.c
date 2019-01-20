@@ -16,7 +16,7 @@ void createHisto(Image *image, int *histo) {
 }
 
 // if the histogram is asked: ppm created and saved
-int histoPPM(int *histo, char *commands[], int nbCommands) {
+int histoPPM(int *histo) {
     // create an image 
     Image histoppm;     
     int width=256;

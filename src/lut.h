@@ -44,6 +44,9 @@ void lutDIMCON(LutRGB *lut, int value);
 /// \param value: new pixel value entered by command lines.
 void lutFLOOR(LutRGB *lut, int value);
 
+/// ADDSAT
+void lutVAPORWAVE(LutRGB *lut, int value, int *histo);
+
 /// INVERT
 /// \brief create a negative image.
 /// \param lut: pointer on the lutRGB.
@@ -65,5 +68,8 @@ void lutGlobal(Image *image, LutRGB *lut);
 /// \brief put the image in grayscales.
 /// \param image: pointer on the image.
 void GRAYSCALE(Image *image);
+
+/// RANDOM
+int randomValue();
 
 #endif
