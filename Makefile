@@ -1,7 +1,7 @@
 CC     = gcc
 CFLAGS = -Wall -O2 -Wno-unused-result -g
 LIB    = -lm
-OBJ    = main.o image.o lut.o histo.o
+OBJ    = src/main.o src/image.o src/lut.o src/histo.o
 RM     = rm -f
 BIN    = bin/minigimp
 DIRNAME = $(shell basename $$PWD)
