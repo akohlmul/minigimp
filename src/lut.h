@@ -15,25 +15,25 @@ typedef struct LutRGB {
 void initLUT (LutRGB *lut);
 
 /// ADDLUM
-/// \brief add luminosity on the image.
+/// \brief add luminosity.
 /// \param lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 void lutADDLUM(LutRGB *lut, int value);
 
 /// DIMLUM
-/// \brief reduce luminosity on the image.
+/// \brief reduce luminosity.
 /// \param lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 void lutDIMLUM(LutRGB *lut, int value);
 
 /// ADDCON
-/// \brief add contrast on the image.
+/// \brief add contrast.
 /// \param lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 void lutADDCON(LutRGB *lut, int value);
 
 /// DIMCON
-/// \brief reduce contrast on the image.
+/// \brief reduce contrast.
 /// \param lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 void lutDIMCON(LutRGB *lut, int value);
@@ -44,16 +44,20 @@ void lutDIMCON(LutRGB *lut, int value);
 /// \param value: new pixel value entered by command lines.
 void lutFLOOR(LutRGB *lut, int value);
 
-/// ADDSAT
+/// VAPORWAVE
+/// \brief
+/// \pram lut: pointer on the lutRGB.
+/// \param value: new pixel value entered by command lines.
+/// \param histo: pointer on the histogram.
 void lutVAPORWAVE(LutRGB *lut, int value, int *histo);
 
 /// INVERT
-/// \brief create a negative image.
+/// \brief invert values to create a negative image.
 /// \param lut: pointer on the lutRGB.
 void lutINVERT(LutRGB *lut);
 
-/// SEPIA WITH PARAM
-/// \brief apply a sepia effect on the image.
+/// SEPIA 
+/// \brief add a sepia effect.
 /// \param lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 void lutSEPIA(LutRGB *lut, int value);
@@ -70,6 +74,8 @@ void lutGlobal(Image *image, LutRGB *lut);
 void GRAYSCALE(Image *image);
 
 /// RANDOM
+/// \brief create a random value.
+/// \return a random value.
 int randomValue();
 
 #endif
