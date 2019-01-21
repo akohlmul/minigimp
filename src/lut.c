@@ -144,5 +144,5 @@ void GRAYSCALE(Image *image) {
 int randomValue () {
 	int randValue;
 	srand(time(0));
-	return randValue = 1+rand()%255;
+	return randValue = 1+rand()%100;
 }

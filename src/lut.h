@@ -4,9 +4,9 @@
 
 /// \brief structure that contains Look-up tables.
 typedef struct LutRGB {
-	int r[256];
-	int g[256];
-	int b[256];
+	unsigned int r[256];
+	unsigned int g[256];
+	unsigned int b[256];
 } LutRGB;
 
 /// INIT LUT

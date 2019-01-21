@@ -50,14 +50,14 @@ int main(int argc, char **argv) {
             lutDIMCON(&lut, atoi(argv[i+1]));
         }
         if (strcmp(argv[i], "FLOOR") == 0) {
-            if (strcmp(argv[i+1], "-r") == 0)
+            if (strcmp(argv[i+1], "-r") == 0) // Fail
                 lutFLOOR(&lut, randomValue());
             lutFLOOR(&lut, atoi(argv[i+1]));
         }
         if (strcmp(argv[i], "VAPORWAVE") == 0) {
             if (strcmp(argv[i+1], "-r") == 0) // Fail
                 lutVAPORWAVE(&lut, randomValue(), histogram);
-            lutVAPORWAVE(&lut, atoi(argv[i+1]), histogram); // right
+            lutVAPORWAVE(&lut, atoi(argv[i+1]), histogram); // ok
         }
         if (strcmp(argv[i], "INVERT") == 0) {
             lutINVERT(&lut);
