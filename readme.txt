@@ -4,7 +4,7 @@
 > ./bin/minigimp pics/landscape.ppm ADDLUM 10 VAPORWAVE 70 ADDCON 75 -o pics/outputlandscape2.ppm
 > ./bin/minigimp pics/landscape.ppm DIMCON 50 GRAYSCALE -o pics/outputlandscape3.ppm
 > ./bin/minigimp pics/landscape.ppm INVERT-o pics/outputlandscape4.ppm
-> ./bin/minigimp pics/landscape.ppm FLOOR 50 -o pics/outputlandscape4.ppm
+> ./bin/minigimp pics/landscape.ppm FLOOR 50 -o pics/outputlandscape5.ppm
 puis regarder dans pics
 
 * effets disponibles :
