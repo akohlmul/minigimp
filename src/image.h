@@ -44,7 +44,7 @@ int selectPixel(Image *image, unsigned int x, unsigned int y, unsigned int color
 /// \param x: pixel rows.
 /// \param y: pixel columns.
 /// \param color: 0 for red, 1 for green, 2 for blue.
-/// \param value:
+/// \param value: new pixel value entered by command lines.
 void changePixel(Image *image, unsigned int x, unsigned int y, unsigned int color, int value);
 
 #endif

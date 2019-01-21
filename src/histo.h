@@ -4,11 +4,11 @@
 
 /// \brief create the histogramme in an array.
 /// \param image: pointer on the Image.
-/// \param histo:
+/// \param histo: pointer on the histogram.
 void createHisto(Image * image, int *histo);
 
-/// \brief create the graph of the histogramme and save in .ppm.
-/// \param histo:
+/// \brief create the graph of the histogram and save in .ppm.
+/// \param histo: pointer on the histogram.
 /// \return EXIT_FAILURE in case of problem, else EXIT_SUCCESS.
 int histoPPM(int *histo);
 
