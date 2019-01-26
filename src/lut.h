@@ -1,3 +1,4 @@
+/* BOYER Johan, KOHLMULLER Amandine, 26/01/2019 */
 #ifndef LUT_H__
 #define LUT_H__
 #include "image.h"
@@ -40,7 +41,7 @@ void lutADDCON(LutRGB *lut, int value);
 void lutDIMCON(LutRGB *lut, int value);
 
 /// FLOOR
-/// \brief 
+/// \brief apply floor defined in param value
 /// \param lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 void lutFLOOR(LutRGB *lut, int value);

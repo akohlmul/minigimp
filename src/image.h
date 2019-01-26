@@ -1,3 +1,4 @@
+/* BOYER Johan, KOHLMULLER Amandine, 26/01/2019 */
 #ifndef IMAGE_H__
 #define IMAGE_H__
 

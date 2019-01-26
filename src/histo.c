@@ -1,3 +1,4 @@
+/* BOYER Johan, KOHLMULLER Amandine, 26/01/2019 */
 #include <stdio.h>
 #include <stdlib.h>
 #include "histo.h"

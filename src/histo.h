@@ -1,3 +1,4 @@
+/* BOYER Johan, KOHLMULLER Amandine, 26/01/2019 */
 #ifndef HISTO_H__
 #define HISTO_H__
 

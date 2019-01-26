@@ -1,3 +1,4 @@
+/* BOYER Johan, KOHLMULLER Amandine, 26/01/2019 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +25,7 @@ int main(int argc, char **argv) {
     int *histogram = (int*)malloc(sizeof(int)*256);
     createHisto(&image, histogram);
 
-    //
+    // check conditions and add lut
     for (int i = 0; i <argc; i++) {
         if ((strcmp(argv[i], "-histo") == 0) || (strcmp(argv[i], "-h") == 0)) {
             histoPPM(histogram);
@@ -73,7 +74,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    // 
+    // apply lut
     lutGlobal(&image, &lut);
 
     // save the image (if the directory "pics" already exists)
