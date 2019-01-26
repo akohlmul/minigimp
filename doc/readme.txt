@@ -3,7 +3,7 @@
 > ./bin/minigimp pics/landscape.ppm ADDLUM 20 SEPIA 50 ADDCON 60 -histo -o pics/outputlandscape1.ppm
 > ./bin/minigimp pics/landscape.ppm ADDLUM 10 VAPORWAVE 70 ADDCON 75 -o pics/outputlandscape2.ppm
 > ./bin/minigimp pics/landscape.ppm DIMCON 50 GRAYSCALE -o pics/outputlandscape3.ppm
-> ./bin/minigimp pics/landscape.ppm INVERT-o pics/outputlandscape4.ppm
+> ./bin/minigimp pics/landscape.ppm INVERT -o pics/outputlandscape4.ppm
 > ./bin/minigimp pics/landscape.ppm FLOOR 50 -o pics/outputlandscape5.ppm
 puis regarder dans pics
 
@@ -26,9 +26,9 @@ regarder dans pics
 > make zip
 
 * pour convertir une image :
-Sous linux, pour convertir une image d'un format à un autre : convert image1.jpg image2.ppm
+> convert image1.jpg image2.ppm
 
 
-//
-Si on fait ADDLUM avant INVERT ça fait plus sombre
-On peut faire des valeurs supérieurs à 100 mais en général c'est pas beau
+* COMMENTAIRES
+L'ordre des effets dans la commande est important, par exemple si on fait ADDLUM avant INVERT le résultat sera plus sombre.
+On peut mettre des valeurs supérieurs à 100 mais en général cela ne rend pas bien.

@@ -1,12 +1,13 @@
 #ifndef LUT_H__
 #define LUT_H__
 #include "image.h"
+#define MAX_SIZE 256
 
 /// \brief structure that contains Look-up tables.
 typedef struct LutRGB {
-	unsigned int r[256];
-	unsigned int g[256];
-	unsigned int b[256];
+	unsigned int r[MAX_SIZE];
+	unsigned int g[MAX_SIZE];
+	unsigned int b[MAX_SIZE];
 } LutRGB;
 
 /// INIT LUT
@@ -39,13 +40,13 @@ void lutADDCON(LutRGB *lut, int value);
 void lutDIMCON(LutRGB *lut, int value);
 
 /// FLOOR
-/// \brief
+/// \brief 
 /// \param lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 void lutFLOOR(LutRGB *lut, int value);
 
 /// VAPORWAVE
-/// \brief
+/// \brief change value of the red and use histogram for the blue
 /// \pram lut: pointer on the lutRGB.
 /// \param value: new pixel value entered by command lines.
 /// \param histo: pointer on the histogram.

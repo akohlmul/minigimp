@@ -7,7 +7,7 @@
 
 //init a lut
 void initLUT(LutRGB *lut) {
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<MAX_SIZE; i++) {
 		lut->r[i]=i;
 		lut->g[i]=i;
 		lut->b[i]=i;
@@ -16,7 +16,7 @@ void initLUT(LutRGB *lut) {
 
 /// ADDLUM
 void lutADDLUM(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<MAX_SIZE; i++) {
 		lut->r[i]=lut->r[i]+value;
 		lut->g[i]=lut->g[i]+value;
 		lut->b[i]=lut->b[i]+value;
@@ -25,7 +25,7 @@ void lutADDLUM(LutRGB *lut, int value) {
 
 /// DIMLUM
 void lutDIMLUM(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<MAX_SIZE; i++) {
 		lut->r[i]=lut->r[i]-value;
 		lut->g[i]=lut->g[i]-value;
 		lut->b[i]=lut->b[i]-value;
@@ -34,7 +34,7 @@ void lutDIMLUM(LutRGB *lut, int value) {
 
 /// ADDCON
 void lutADDCON(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++){
+	for (int i=0; i<MAX_SIZE; i++){
 		lut->r[i]=lut->r[i]+(value*sin(lut->r[i]*((2*M_PI)/255)-M_PI));
 		lut->g[i]=lut->g[i]+(value*sin(lut->g[i]*((2*M_PI)/255)-M_PI));
 		lut->b[i]=lut->b[i]+(value*sin(lut->b[i]*((2*M_PI)/255)-M_PI));
@@ -43,7 +43,7 @@ void lutADDCON(LutRGB *lut, int value) {
 
 /// DIMCON
 void lutDIMCON(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++){
+	for (int i=0; i<MAX_SIZE; i++){
 		int red=lut->r[i]-(value*sin(lut->r[i]*((2*M_PI)/255)-M_PI));
 		int green=lut->g[i]-(value*sin(lut->g[i]*((2*M_PI)/255)-M_PI));
 		int blue=lut->b[i]-(value*sin(lut->b[i]*((2*M_PI)/255)-M_PI));
@@ -64,18 +64,18 @@ void lutDIMCON(LutRGB *lut, int value) {
 
 /// FLOOR
 void lutFLOOR(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++) {
-		if (lut->r[i]<value) {
+	for (int i=0; i<MAX_SIZE; i++) {
+		if (lut->r[i]>value) {
 			lut->r[i]=255;
 		} else {
 			lut->r[i]=0;
 		}
-		if (lut->g[i]<value) {
+		if (lut->g[i]>value) {
 			lut->g[i]=255;
 		} else {
 			lut->g[i]=0;
 		}
-		if (lut->b[i]<value) {
+		if (lut->b[i]>value) {
 			lut->b[i]=255;
 		} else {
 			lut->b[i]=0;
@@ -83,9 +83,9 @@ void lutFLOOR(LutRGB *lut, int value) {
 	}
 }
 
-/// ADDSAT
+/// VAPORWAVE
 void lutVAPORWAVE(LutRGB *lut, int value, int *histo) {
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<MAX_SIZE; i++) {
 		lut->r[i]=lut->r[i]*(value/20);
 		lut->b[i]=(histo[i]+1);
 	}
@@ -93,7 +93,7 @@ void lutVAPORWAVE(LutRGB *lut, int value, int *histo) {
 
 /// INVERT
 void lutINVERT(LutRGB *lut) {
-	for (int i=0; i<256; i++) {
+	for (int i=0; i<MAX_SIZE; i++) {
 		lut->r[i]=255-lut->r[i];
 		lut->g[i]=255-lut->g[i];
 		lut->b[i]=255-lut->b[i];
@@ -102,7 +102,7 @@ void lutINVERT(LutRGB *lut) {
 
 /// SEPIA 
 void lutSEPIA(LutRGB *lut, int value) {
-	for (int i=0; i<256; i++){
+	for (int i=0; i<MAX_SIZE; i++){
 		lut->r[i]=((lut->r[i])+(2*value/3));
 		lut->g[i]=((lut->g[i])+(1.2*value/3));
 	}

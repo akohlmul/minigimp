@@ -1,6 +1,5 @@
 #ifndef HISTO_H__
 #define HISTO_H__
-#include "image.h"
 
 /// \brief create the histogramme in an array.
 /// \param image: pointer on the Image.
